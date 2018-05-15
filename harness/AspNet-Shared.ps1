@@ -40,10 +40,10 @@ function Calculate-Versions(
     }
 
     $ret = @{}
-    $ret.Add("JITBENCH_ASPNET_VERSION",$AspNetVersion)
-    $ret.Add("JITBENCH_FRAMEWORK_SDK_VERSION", $FrameworkSdkVersion)
-    $ret.Add("JITBENCH_TARGET_FRAMEWORK_MONIKER", $TargetFrameworkMoniker)
-    $ret.Add("JITBENCH_FRAMEWORK_VERSION", $FrameworkVersion)
+    $ret.Add("SCENARIOS_ASPNET_VERSION",$AspNetVersion)
+    $ret.Add("SCENARIOS_FRAMEWORK_SDK_VERSION", $FrameworkSdkVersion)
+    $ret.Add("SCENARIOS_TARGET_FRAMEWORK_MONIKER", $TargetFrameworkMoniker)
+    $ret.Add("SCENARIOS_FRAMEWORK_VERSION", $FrameworkVersion)
     return $ret
 }
 

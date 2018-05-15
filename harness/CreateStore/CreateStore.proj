@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AspNetVersion>$(JITBENCH_ASPNET_VERSION)</AspNetVersion>
-    <TargetFramework>$(JITBENCH_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
-    <RuntimeFrameworkVersion>$(JITBENCH_FRAMEWORK_VERSION)</RuntimeFrameworkVersion>
+    <AspNetVersion>$(SCENARIOS_ASPNET_VERSION)</AspNetVersion>
+    <TargetFramework>$(SCENARIOS_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
+    <RuntimeFrameworkVersion>$(SCENARIOS_FRAMEWORK_VERSION)</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>

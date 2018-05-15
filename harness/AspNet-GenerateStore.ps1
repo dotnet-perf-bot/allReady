@@ -17,8 +17,8 @@ $InstallDir = New-InstallDirectory -Directory $InstallDir -Default ".store" -Cle
 # bad at cleaning up after itself.
 $temp = New-InstallDirectory -Directory "<auto>" -Default ".temp" -Clean
 
-$Framework = $env:JITBENCH_TARGET_FRAMEWORK_MONIKER
-$FrameworkVersion = $env:JITBENCH_FRAMEWORK_VERSION
+$Framework = $env:SCENARIOS_TARGET_FRAMEWORK_MONIKER
+$FrameworkVersion = $env:SCENARIOS_FRAMEWORK_VERSION
 
 Write-Host -ForegroundColor Green "Running dotnet store --manifest ..\..\..\harness\CreateStore\CreateStore.proj -f" $Framework "-r" $Runtime "--framework-version" $FrameworkVersion "-w" $temp "-o" $InstallDir "--skip-symbols"
 & "dotnet" "store", "--manifest", "..\..\..\harness\CreateStore\CreateStore.proj", "-f", "$Framework", "-r" "$Runtime" "--framework-version", "$FrameworkVersion", "-w", $temp, "-o", "$InstallDir", "--skip-symbols"
@@ -28,7 +28,7 @@ if ($LastExitCode -ne 0)
 }
 $BinariesDirectory = $InstallDir
 $Manifest = [System.IO.Path]::Combine($InstallDir, $Architecture, $Framework, 'artifact.xml')
-Write-Host -ForegroundColor Green "Setting JITBENCH_ASPNET_MANIFEST to $Manifest"
+Write-Host -ForegroundColor Green "Setting SCENARIOS_ASPNET_MANIFEST to $Manifest"
 
 Write-Host -ForegroundColor Green "Setting DOTNET_SHARED_STORE to $BinariesDirectory"
 $env:DOTNET_SHARED_STORE = $BinariesDirectory
