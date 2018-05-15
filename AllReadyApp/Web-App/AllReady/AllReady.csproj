@@ -3,7 +3,7 @@
   <Import Project="..\..\..\harness\webapp.props" />
   <PropertyGroup>
     <Description>AllReady</Description>
-    <TargetFramework>$(JITBENCH_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
+    <TargetFramework>$(SCENARIOS_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
     <TargetFramework Condition="'$(TargetFramework)'==''">netcoreapp2.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>AllReady</AssemblyName>
@@ -24,7 +24,7 @@
     <Compile Include="..\..\AllReady.Core\Notifications\*.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\harness\JitBenchHelper.cs" Link="JitBenchHelper.cs" />
+    <Compile Include="..\..\..\harness\ScenariosHelper.cs" Link="ScenariosHelper.cs" />
   </ItemGroup>
 
   <ItemGroup>

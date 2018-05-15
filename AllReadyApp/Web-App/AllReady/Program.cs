@@ -2,7 +2,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using JitBench;
+using Scenarios;
 using System;
 
 namespace AllReady
@@ -13,7 +13,7 @@ namespace AllReady
 
         public static void Main(string[] args)
         {
-            var jitBench = JitBenchHelper.Start();
+            var scenarios = ScenariosHelper.Start();
 
             var config = new ConfigurationBuilder()
                .AddCommandLine(Array.Empty<string>())
@@ -22,11 +22,11 @@ namespace AllReady
 
             BuildWebHost(args, config).Start();
 
-            jitBench.LogStartup();
+            scenarios.LogStartup();
 
-            jitBench.PerformHttpRequests(Url, args, threshholds: new int[] { 100, 250, 500, 750, 1000, 1500, 2000 });
+            scenarios.PerformHttpRequests(Url, args, threshholds: new int[] { 100, 250, 500, 750, 1000, 1500, 2000 });
 
-            jitBench.VerifyLibraryLocation();
+            scenarios.VerifyLibraryLocation();
         }
 
         public static IWebHost BuildWebHost(string[] args, IConfigurationRoot configRoot) =>

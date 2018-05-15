@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Reflection;
 using Microsoft.AspNetCore.Hosting;
 
-namespace JitBench
+namespace Scenarios
 {
     [EventSource(Name = "MusicStore")]
     public class MusicStoreEventSource : EventSource
@@ -50,20 +50,20 @@ namespace JitBench
         }
     }
 
-    public class JitBenchHelper
+    public class ScenariosHelper
     {
         readonly Stopwatch totalTime;
         readonly MusicStoreEventSource eventSource;
         int serverStartupTime;
 
-        private JitBenchHelper(Stopwatch stopwatch)
+        private ScenariosHelper(Stopwatch stopwatch)
         {
             totalTime = stopwatch;
             eventSource = new MusicStoreEventSource();
             eventSource.ServerStartupBegin();
         }
 
-        public static JitBenchHelper Start() => new JitBenchHelper(Stopwatch.StartNew());
+        public static ScenariosHelper Start() => new ScenariosHelper(Stopwatch.StartNew());
 
         public void LogStartup()
         {
@@ -148,7 +148,7 @@ namespace JitBench
         public void VerifyLibraryLocation()
         {
             var hosting = typeof(WebHostBuilder).GetTypeInfo().Assembly.Location;
-            var musicStore = typeof(JitBenchHelper).GetTypeInfo().Assembly.Location;
+            var musicStore = typeof(ScenariosHelper).GetTypeInfo().Assembly.Location;
 
             if (Path.GetDirectoryName(hosting) == Path.GetDirectoryName(musicStore))
             {
