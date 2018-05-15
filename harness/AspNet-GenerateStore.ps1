@@ -20,8 +20,8 @@ $temp = New-InstallDirectory -Directory "<auto>" -Default ".temp" -Clean
 $Framework = $env:JITBENCH_TARGET_FRAMEWORK_MONIKER
 $FrameworkVersion = $env:JITBENCH_FRAMEWORK_VERSION
 
-Write-Host -ForegroundColor Green "Running dotnet store --manifest .\copied\CreateStore\CreateStore.proj -f" $Framework "-r" $Runtime "--framework-version" $FrameworkVersion "-w" $temp "-o" $InstallDir "--skip-symbols"
-& "dotnet" "store", "--manifest", ".\copied\CreateStore\CreateStore.proj", "-f", "$Framework", "-r" "$Runtime" "--framework-version", "$FrameworkVersion", "-w", $temp, "-o", "$InstallDir", "--skip-symbols"
+Write-Host -ForegroundColor Green "Running dotnet store --manifest ..\..\..\harness\CreateStore\CreateStore.proj -f" $Framework "-r" $Runtime "--framework-version" $FrameworkVersion "-w" $temp "-o" $InstallDir "--skip-symbols"
+& "dotnet" "store", "--manifest", "..\..\..\harness\CreateStore\CreateStore.proj", "-f", "$Framework", "-r" "$Runtime" "--framework-version", "$FrameworkVersion", "-w", $temp, "-o", "$InstallDir", "--skip-symbols"
 if ($LastExitCode -ne 0)
 {
     throw "dotnet store failed."
