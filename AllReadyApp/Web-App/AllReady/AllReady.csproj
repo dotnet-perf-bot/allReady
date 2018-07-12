@@ -4,6 +4,7 @@
   <PropertyGroup>
     <Description>AllReady</Description>
     <TargetFramework>$(SCENARIOS_TARGET_FRAMEWORK_MONIKER)</TargetFramework>
+    <NETCoreAppMaximumVersion>3.0</NETCoreAppMaximumVersion>
     <TargetFramework Condition="'$(TargetFramework)'==''">netcoreapp2.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>AllReady</AssemblyName>
